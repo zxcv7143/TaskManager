@@ -8,11 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		380EC07224BDC009001B0B2A /* TareasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC07124BDC009001B0B2A /* TareasApp.swift */; };
-		380EC07424BDC009001B0B2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC07324BDC009001B0B2A /* ContentView.swift */; };
+		380EC07424BDC009001B0B2A /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC07324BDC009001B0B2A /* TaskList.swift */; };
 		380EC07624BDC00A001B0B2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 380EC07524BDC00A001B0B2A /* Assets.xcassets */; };
 		380EC07924BDC00A001B0B2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 380EC07824BDC00A001B0B2A /* Preview Assets.xcassets */; };
 		380EC08424BDC00A001B0B2A /* TareasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC08324BDC00A001B0B2A /* TareasTests.swift */; };
 		380EC08F24BDC00A001B0B2A /* TareasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC08E24BDC00A001B0B2A /* TareasUITests.swift */; };
+		380EC09F24BDC0A2001B0B2A /* Tasks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 380EC09D24BDC0A2001B0B2A /* Tasks.xcdatamodeld */; };
+		380EC0A124BDC121001B0B2A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0A024BDC121001B0B2A /* CoreDataManager.swift */; };
+		380EC0A624BDC3A6001B0B2A /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0A524BDC3A6001B0B2A /* TaskListViewModel.swift */; };
+		380EC0A824BDC411001B0B2A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0A724BDC411001B0B2A /* TaskModel.swift */; };
+		380EC0AB24BDC46C001B0B2A /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0AA24BDC46C001B0B2A /* DateUtils.swift */; };
+		380EC0AD24BDC729001B0B2A /* TaskCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0AC24BDC729001B0B2A /* TaskCellView.swift */; };
+		380EC0AF24BDCA8C001B0B2A /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0AE24BDCA8C001B0B2A /* AddTaskView.swift */; };
+		380EC0B224BDCAEE001B0B2A /* AddTaskFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0B124BDCAEE001B0B2A /* AddTaskFormView.swift */; };
+		380EC0B424BDCAFC001B0B2A /* AddTaskButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0B324BDCAFC001B0B2A /* AddTaskButtonView.swift */; };
+		380EC0B624BDCB33001B0B2A /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0B524BDCB33001B0B2A /* AddTaskViewModel.swift */; };
+		380EC0B824BE3CBE001B0B2A /* CheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0B724BE3CBE001B0B2A /* CheckmarkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +46,7 @@
 /* Begin PBXFileReference section */
 		380EC06E24BDC009001B0B2A /* Tareas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tareas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		380EC07124BDC009001B0B2A /* TareasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TareasApp.swift; sourceTree = "<group>"; };
-		380EC07324BDC009001B0B2A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		380EC07324BDC009001B0B2A /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		380EC07524BDC00A001B0B2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		380EC07824BDC00A001B0B2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		380EC07A24BDC00A001B0B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +56,18 @@
 		380EC08A24BDC00A001B0B2A /* TareasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TareasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		380EC08E24BDC00A001B0B2A /* TareasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TareasUITests.swift; sourceTree = "<group>"; };
 		380EC09024BDC00A001B0B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		380EC09E24BDC0A2001B0B2A /* Tasks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tasks.xcdatamodel; sourceTree = "<group>"; };
+		380EC0A024BDC121001B0B2A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		380EC0A524BDC3A6001B0B2A /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
+		380EC0A724BDC411001B0B2A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		380EC0AA24BDC46C001B0B2A /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		380EC0AC24BDC729001B0B2A /* TaskCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellView.swift; sourceTree = "<group>"; };
+		380EC0AE24BDCA8C001B0B2A /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		380EC0B124BDCAEE001B0B2A /* AddTaskFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskFormView.swift; sourceTree = "<group>"; };
+		380EC0B324BDCAFC001B0B2A /* AddTaskButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskButtonView.swift; sourceTree = "<group>"; };
+		380EC0B524BDCB33001B0B2A /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
+		380EC0B724BE3CBE001B0B2A /* CheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkView.swift; sourceTree = "<group>"; };
+		380EC0B924BEFFBE001B0B2A /* Tareas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tareas.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +118,12 @@
 		380EC07024BDC009001B0B2A /* Tareas */ = {
 			isa = PBXGroup;
 			children = (
-				380EC07124BDC009001B0B2A /* TareasApp.swift */,
-				380EC07324BDC009001B0B2A /* ContentView.swift */,
+				380EC0B924BEFFBE001B0B2A /* Tareas.entitlements */,
+				380EC0A924BDC45B001B0B2A /* Utils */,
+				380EC09C24BDC07F001B0B2A /* Model */,
+				380EC0A424BDC2F0001B0B2A /* App */,
+				380EC0A324BDC2E5001B0B2A /* ViewModels */,
+				380EC0A224BDC2DC001B0B2A /* Views */,
 				380EC07524BDC00A001B0B2A /* Assets.xcassets */,
 				380EC07A24BDC00A001B0B2A /* Info.plist */,
 				380EC07724BDC00A001B0B2A /* Preview Content */,
@@ -128,6 +155,62 @@
 				380EC09024BDC00A001B0B2A /* Info.plist */,
 			);
 			path = TareasUITests;
+			sourceTree = "<group>";
+		};
+		380EC09C24BDC07F001B0B2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				380EC09D24BDC0A2001B0B2A /* Tasks.xcdatamodeld */,
+				380EC0A024BDC121001B0B2A /* CoreDataManager.swift */,
+				380EC0A724BDC411001B0B2A /* TaskModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		380EC0A224BDC2DC001B0B2A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				380EC0B024BDCAD7001B0B2A /* AddTaskView */,
+				380EC07324BDC009001B0B2A /* TaskList.swift */,
+				380EC0AC24BDC729001B0B2A /* TaskCellView.swift */,
+				380EC0B724BE3CBE001B0B2A /* CheckmarkView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		380EC0A324BDC2E5001B0B2A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				380EC0A524BDC3A6001B0B2A /* TaskListViewModel.swift */,
+				380EC0B524BDCB33001B0B2A /* AddTaskViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		380EC0A424BDC2F0001B0B2A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				380EC07124BDC009001B0B2A /* TareasApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		380EC0A924BDC45B001B0B2A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				380EC0AA24BDC46C001B0B2A /* DateUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		380EC0B024BDCAD7001B0B2A /* AddTaskView */ = {
+			isa = PBXGroup;
+			children = (
+				380EC0AE24BDCA8C001B0B2A /* AddTaskView.swift */,
+				380EC0B124BDCAEE001B0B2A /* AddTaskFormView.swift */,
+				380EC0B324BDCAFC001B0B2A /* AddTaskButtonView.swift */,
+			);
+			path = AddTaskView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +342,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				380EC07424BDC009001B0B2A /* ContentView.swift in Sources */,
+				380EC0A824BDC411001B0B2A /* TaskModel.swift in Sources */,
+				380EC0B624BDCB33001B0B2A /* AddTaskViewModel.swift in Sources */,
+				380EC07424BDC009001B0B2A /* TaskList.swift in Sources */,
 				380EC07224BDC009001B0B2A /* TareasApp.swift in Sources */,
+				380EC0AF24BDCA8C001B0B2A /* AddTaskView.swift in Sources */,
+				380EC0AD24BDC729001B0B2A /* TaskCellView.swift in Sources */,
+				380EC0A624BDC3A6001B0B2A /* TaskListViewModel.swift in Sources */,
+				380EC0B424BDCAFC001B0B2A /* AddTaskButtonView.swift in Sources */,
+				380EC0AB24BDC46C001B0B2A /* DateUtils.swift in Sources */,
+				380EC0A124BDC121001B0B2A /* CoreDataManager.swift in Sources */,
+				380EC09F24BDC0A2001B0B2A /* Tasks.xcdatamodeld in Sources */,
+				380EC0B824BE3CBE001B0B2A /* CheckmarkView.swift in Sources */,
+				380EC0B224BDCAEE001B0B2A /* AddTaskFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tareas/Tareas.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Tareas/Preview Content\"";
 				DEVELOPMENT_TEAM = 2A956G64PM;
@@ -429,6 +524,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.antonzuev.tasks.Tareas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -439,6 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tareas/Tareas.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Tareas/Preview Content\"";
 				DEVELOPMENT_TEAM = 2A956G64PM;
@@ -451,6 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.antonzuev.tasks.Tareas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -580,6 +678,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		380EC09D24BDC0A2001B0B2A /* Tasks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				380EC09E24BDC0A2001B0B2A /* Tasks.xcdatamodel */,
+			);
+			currentVersion = 380EC09E24BDC0A2001B0B2A /* Tasks.xcdatamodel */;
+			path = Tasks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 380EC06624BDC009001B0B2A /* Project object */;
 }
