@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		380EC07224BDC009001B0B2A /* TareasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC07124BDC009001B0B2A /* TareasApp.swift */; };
 		380EC07424BDC009001B0B2A /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC07324BDC009001B0B2A /* TaskList.swift */; };
 		380EC07624BDC00A001B0B2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 380EC07524BDC00A001B0B2A /* Assets.xcassets */; };
 		380EC07924BDC00A001B0B2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 380EC07824BDC00A001B0B2A /* Preview Assets.xcassets */; };
@@ -35,6 +34,11 @@
 		380EC0D524BF0D72001B0B2A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0A024BDC121001B0B2A /* CoreDataManager.swift */; };
 		380EC0D624BF0D76001B0B2A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0A724BDC411001B0B2A /* TaskModel.swift */; };
 		380EC0D724BF0F54001B0B2A /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC0AA24BDC46C001B0B2A /* DateUtils.swift */; };
+		380EC0DA24BF48AA001B0B2A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 380EC0D924BF48AA001B0B2A /* CloudKit.framework */; };
+		380EC0DB24BF499A001B0B2A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 380EC0D924BF48AA001B0B2A /* CloudKit.framework */; };
+		380EC12024BF64EF001B0B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC11F24BF64EF001B0B2A /* AppDelegate.swift */; };
+		380EC12224BF64FE001B0B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EC12124BF64FE001B0B2A /* SceneDelegate.swift */; };
+		380EC12424BF6657001B0B2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 380EC12324BF6657001B0B2A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +81,6 @@
 
 /* Begin PBXFileReference section */
 		380EC06E24BDC009001B0B2A /* Tareas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tareas.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		380EC07124BDC009001B0B2A /* TareasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TareasApp.swift; sourceTree = "<group>"; };
 		380EC07324BDC009001B0B2A /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		380EC07524BDC00A001B0B2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		380EC07824BDC00A001B0B2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -107,6 +110,11 @@
 		380EC0C724BF05A2001B0B2A /* TaskWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TaskWidget.intentdefinition; sourceTree = "<group>"; };
 		380EC0C824BF05A4001B0B2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		380EC0CA24BF05A4001B0B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		380EC0D824BF487B001B0B2A /* TaskWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskWidgetExtension.entitlements; sourceTree = "<group>"; };
+		380EC0D924BF48AA001B0B2A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		380EC11F24BF64EF001B0B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		380EC12124BF64FE001B0B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		380EC12324BF6657001B0B2A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				380EC0DB24BF499A001B0B2A /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				380EC0DA24BF48AA001B0B2A /* CloudKit.framework in Frameworks */,
 				380EC0C324BF05A2001B0B2A /* SwiftUI.framework in Frameworks */,
 				380EC0C124BF05A2001B0B2A /* WidgetKit.framework in Frameworks */,
 			);
@@ -176,6 +186,7 @@
 				380EC0A324BDC2E5001B0B2A /* ViewModels */,
 				380EC0A224BDC2DC001B0B2A /* Views */,
 				380EC07524BDC00A001B0B2A /* Assets.xcassets */,
+				380EC12324BF6657001B0B2A /* LaunchScreen.storyboard */,
 				380EC07A24BDC00A001B0B2A /* Info.plist */,
 				380EC07724BDC00A001B0B2A /* Preview Content */,
 			);
@@ -241,7 +252,8 @@
 		380EC0A424BDC2F0001B0B2A /* App */ = {
 			isa = PBXGroup;
 			children = (
-				380EC07124BDC009001B0B2A /* TareasApp.swift */,
+				380EC11F24BF64EF001B0B2A /* AppDelegate.swift */,
+				380EC12124BF64FE001B0B2A /* SceneDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -267,6 +279,7 @@
 		380EC0BF24BF05A2001B0B2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				380EC0D924BF48AA001B0B2A /* CloudKit.framework */,
 				380EC0C024BF05A2001B0B2A /* WidgetKit.framework */,
 				380EC0C224BF05A2001B0B2A /* SwiftUI.framework */,
 			);
@@ -276,6 +289,7 @@
 		380EC0C424BF05A2001B0B2A /* TaskWidget */ = {
 			isa = PBXGroup;
 			children = (
+				380EC0D824BF487B001B0B2A /* TaskWidgetExtension.entitlements */,
 				380EC0C524BF05A2001B0B2A /* TaskWidget.swift */,
 				380EC0C724BF05A2001B0B2A /* TaskWidget.intentdefinition */,
 				380EC0C824BF05A4001B0B2A /* Assets.xcassets */,
@@ -410,6 +424,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				380EC12424BF6657001B0B2A /* LaunchScreen.storyboard in Resources */,
 				380EC07924BDC00A001B0B2A /* Preview Assets.xcassets in Resources */,
 				380EC07624BDC00A001B0B2A /* Assets.xcassets in Resources */,
 			);
@@ -447,11 +462,12 @@
 				380EC0A824BDC411001B0B2A /* TaskModel.swift in Sources */,
 				380EC0B624BDCB33001B0B2A /* AddTaskViewModel.swift in Sources */,
 				380EC07424BDC009001B0B2A /* TaskList.swift in Sources */,
-				380EC07224BDC009001B0B2A /* TareasApp.swift in Sources */,
 				380EC0AF24BDCA8C001B0B2A /* AddTaskView.swift in Sources */,
 				380EC0CC24BF05A4001B0B2A /* TaskWidget.intentdefinition in Sources */,
 				380EC0AD24BDC729001B0B2A /* TaskCellView.swift in Sources */,
+				380EC12224BF64FE001B0B2A /* SceneDelegate.swift in Sources */,
 				380EC0A624BDC3A6001B0B2A /* TaskListViewModel.swift in Sources */,
+				380EC12024BF64EF001B0B2A /* AppDelegate.swift in Sources */,
 				380EC0B424BDCAFC001B0B2A /* AddTaskButtonView.swift in Sources */,
 				380EC0AB24BDC46C001B0B2A /* DateUtils.swift in Sources */,
 				380EC0A124BDC121001B0B2A /* CoreDataManager.swift in Sources */,
@@ -766,6 +782,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TaskWidget/TaskWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2A956G64PM;
 				INFOPLIST_FILE = TaskWidget/Info.plist;
@@ -787,6 +804,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TaskWidget/TaskWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2A956G64PM;
 				INFOPLIST_FILE = TaskWidget/Info.plist;
