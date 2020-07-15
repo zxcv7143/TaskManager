@@ -20,7 +20,7 @@ struct TaskCellView: View {
             self.onCheckMarkValueChanged(isChecked)
         })
         Text(taskModel.title)
-          .font(.system(size: 30))
+          .font(.system(size: 25))
           .padding()
         Spacer()
         Text(taskModel.dueDate)
