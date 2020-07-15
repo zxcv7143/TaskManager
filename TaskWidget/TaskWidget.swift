@@ -17,7 +17,7 @@ struct Provider: IntentTimelineProvider {
 
     public func timeline(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
-        let tasksUncompleted = CoreDataManager.sharedInstance.fetchAllTask().map(TaskModel.init)
+        let tasksUncompleted = CoreDataManager.sharedInstance.fetchAllTodayUnCompletedTasks().map(TaskModel.init)
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         for i in 0 ..< tasksUncompleted.count {
             let entryDate = DateUtils.getDateFromString(for: tasksUncompleted[i].dueDate)?.addingTimeInterval(-6200)
@@ -48,6 +48,7 @@ struct TaskWidgetEntryView : View {
     var body: some View {
         VStack {
           HStack {
+            Image(systemName: "square")
             Text(entry.task.title ?? "")
               .font(.system(size: 30))
               .padding()

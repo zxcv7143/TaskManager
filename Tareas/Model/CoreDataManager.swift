@@ -36,8 +36,7 @@ class CoreDataManager {
     
     func fetchAllTodayUnCompletedTasks() -> [Task] {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        
-//        fetchRequest.predicate = NSPredicate(format: "completed == %@",NSNumber(value: false))
+        fetchRequest.predicate = NSPredicate(format: "dueDate < %@ AND completed == NO", DateUtils.tomorrow() as CVarArg)
         let context = persistentContainer.viewContext
         guard let results = try? context.fetch(fetchRequest) else {
             return []
