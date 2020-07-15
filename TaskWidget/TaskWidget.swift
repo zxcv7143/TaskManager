@@ -11,7 +11,7 @@ import Intents
 
 struct Provider: IntentTimelineProvider {
     public func snapshot(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), task: TaskModel(id: UUID(), title: "task", note: "SimpleNote", completed: false))
+        let entry = SimpleEntry(date: Date(), tasks: [TaskModel(id: UUID(), title: "task", note: "SimpleNote", completed: false)])
         completion(entry)
     }
 
@@ -21,7 +21,7 @@ struct Provider: IntentTimelineProvider {
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         for i in 0 ..< tasksUncompleted.count {
             let entryDate = DateUtils.getDateFromString(for: tasksUncompleted[i].dueDate)?.addingTimeInterval(-6200)
-            let entry = SimpleEntry(date: entryDate ?? Date(), task: tasksUncompleted[i])
+            let entry = SimpleEntry(date: entryDate ?? Date(), tasks: tasksUncompleted)
             entries.append(entry)
         }
 
@@ -32,13 +32,13 @@ struct Provider: IntentTimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     public let date: Date
-    public let task: TaskModel
+    public let tasks: [TaskModel]
 //    public let configuration: ConfigurationIntent
 }
 
 struct PlaceholderView : View {
     var body: some View {
-        TaskWidgetEntryView(entry: SimpleEntry(date: Date(), task: TaskModel(id: UUID(), title: "Task", note: "Note", completed: false)))
+        TaskWidgetEntryView(entry: SimpleEntry(date: Date(), tasks: [TaskModel(id: UUID(), title: "Task", note: "Note", completed: false)]))
     }
 }
 
@@ -46,13 +46,18 @@ struct TaskWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-          HStack {
-            Image(systemName: "square")
-            Text(entry.task.title ?? "")
-              .font(.system(size: 30))
-              .padding()
-          }
+        VStack(alignment: .leading) {
+            ForEach(entry.tasks, id: \.self) { task in
+                HStack {
+                    Image(systemName: "square").foregroundColor(.red)
+                  Text(task.title ?? "")
+                    .font(.system(size: 15))
+                }
+                Text(task.dueDate)
+                    .font(.system(size: 10)).padding(5)
+                Text(task.note)
+                    .font(.system(size: 10)).padding(5)
+           }
         }
     }
 }
@@ -72,7 +77,7 @@ struct TaskWidget: Widget {
 
 struct TaskWidget_Previews: PreviewProvider {
     static var previews: some View {
-        TaskWidgetEntryView(entry: SimpleEntry(date: Date(), task: TaskModel(id: UUID(), title: "Task", note: "Note", completed: false)))
+        TaskWidgetEntryView(entry: SimpleEntry(date: Date(), tasks: [TaskModel(id: UUID(), title: "Task", note: "Note", completed: false), TaskModel(id: UUID(), title: "Task very important", note: "Note", completed: false)]))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

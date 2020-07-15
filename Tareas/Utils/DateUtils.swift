@@ -27,7 +27,7 @@ struct DateUtils {
         dateComponents.setValue(1, for: .day); // +1 day
         
         let now = Date() // Current date
-        let tomorrow = Calendar.current.date(byAdding: dateComponents, to: now)  // Add the DateComponents
+        let tomorrow = Calendar.current.date(byAdding: dateComponents, to: now)// Add the DateComponents
         
         return tomorrow!
     }

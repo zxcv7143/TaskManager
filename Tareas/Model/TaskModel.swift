@@ -7,7 +7,25 @@
 
 import Foundation
 
-class TaskModel: Identifiable, ObservableObject {
+class TaskModel: Identifiable, ObservableObject, Hashable, Codable {
+    
+    static func == (lhs: TaskModel, rhs: TaskModel) -> Bool {
+        if lhs.id == rhs.id &&
+            lhs.title == rhs.title &&
+            lhs.note == rhs.note &&
+            lhs.dueDate == rhs.dueDate &&
+            lhs.completed == rhs.completed   {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+    }
+    
+    
   let id: UUID
   var title: String
   var note: String
