@@ -16,9 +16,11 @@ struct TaskListView: View {
             NavigationView {
               List {
                 ForEach(self.taskListViewModel.tasks) { taskModel in
-                    TaskCellView(taskModel: taskModel) {isChecked in
-                        self.taskListViewModel.updateTaskCompleted(taskId: taskModel.id, isCompleted: isChecked)
-                        self.taskListViewModel.fetchAllTasks()
+                    NavigationLink(destination: TaskDetailView(taskModel: taskModel)) {
+                        TaskCellView(taskModel: taskModel) {isChecked in
+                            self.taskListViewModel.updateTaskCompleted(taskId: taskModel.id, isCompleted: isChecked)
+                            self.taskListViewModel.fetchAllTasks()
+                        }
                     }
                 }.onDelete { indexSet in
                   self.taskListViewModel.deleteItem(for: indexSet)

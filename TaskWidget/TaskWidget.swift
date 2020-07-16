@@ -42,23 +42,44 @@ struct PlaceholderView : View {
     }
 }
 
+struct TaskView: View {
+    let task: TaskModel
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "square").foregroundColor(.red)
+          Text(task.title ?? "")
+            .font(.system(size: 15))
+        }
+        Text(task.dueDate)
+            .font(.system(size: 10))
+        Text(task.note)
+            .font(.system(size: 10))
+    }
+}
+
 struct TaskWidgetEntryView : View {
     var entry: Provider.Entry
-
+    
+    @Environment(\.widgetFamily) var family
+    
+    @ViewBuilder
     var body: some View {
-        VStack(alignment: .leading) {
-            ForEach(entry.tasks, id: \.self) { task in
-                HStack {
-                    Image(systemName: "square").foregroundColor(.red)
-                  Text(task.title ?? "")
-                    .font(.system(size: 15))
-                }
-                Text(task.dueDate)
-                    .font(.system(size: 10)).padding(5)
-                Text(task.note)
-                    .font(.system(size: 10)).padding(5)
-           }
+        switch family {
+        case .systemSmall:
+            VStack(alignment: .leading) {
+                ForEach(entry.tasks, id: \.self) { task in
+                    TaskView(task: task)
+               }
+            }.padding(5)
+        default:
+            VStack(alignment: .leading) {
+                ForEach(entry.tasks, id: \.self) { task in
+                    TaskView(task: task)
+               }
+            }.padding(5)
         }
+        
     }
 }
 
