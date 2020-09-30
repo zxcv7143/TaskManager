@@ -10,23 +10,28 @@ import SwiftUI
 import Intents
 
 struct Provider: IntentTimelineProvider {
-    public func snapshot(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (SimpleEntry) -> ()) {
+    
+    public func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> Void) {
         let entry = SimpleEntry(date: Date(), tasks: [TaskModel(id: UUID(), title: "task", note: "SimpleNote", completed: false)])
         completion(entry)
     }
 
-    public func timeline(for configuration: ConfigurationIntent, with context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    public func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
         var entries: [SimpleEntry] = []
         let tasksUncompleted = CoreDataManager.sharedInstance.fetchAllTodayUnCompletedTasks().map(TaskModel.init)
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        // Generate a timeline consisting of entries of tasks that should will be completed today.
         for i in 0 ..< tasksUncompleted.count {
             let entryDate = DateUtils.getDateFromString(for: tasksUncompleted[i].dueDate)?.addingTimeInterval(-6200)
             let entry = SimpleEntry(date: entryDate ?? Date(), tasks: tasksUncompleted)
             entries.append(entry)
         }
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        let timeline = Timeline(entries: entries, policy:.atEnd)
         completion(timeline)
+    }
+    
+    func placeholder(in context: Context) -> SimpleEntry {
+        SimpleEntry(date: Date(), tasks: [TaskModel(id: UUID(), title: "Task", note: "Note", completed: false)])
     }
 }
 
@@ -36,11 +41,6 @@ struct SimpleEntry: TimelineEntry {
 //    public let configuration: ConfigurationIntent
 }
 
-struct PlaceholderView : View {
-    var body: some View {
-        TaskWidgetEntryView(entry: SimpleEntry(date: Date(), tasks: [TaskModel(id: UUID(), title: "Task", note: "Note", completed: false)]))
-    }
-}
 
 struct TaskView: View {
     let task: TaskModel
@@ -48,7 +48,7 @@ struct TaskView: View {
     var body: some View {
         HStack {
             Image(systemName: "square").foregroundColor(.red)
-          Text(task.title ?? "")
+            Text(task.title )
             .font(.system(size: 15))
         }
         Text(task.dueDate)
@@ -88,11 +88,12 @@ struct TaskWidget: Widget {
     private let kind: String = "TaskWidget"
 
     public var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider(), placeholder: PlaceholderView()) { entry in
+        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             TaskWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
+        .supportedFamilies([.systemLarge])
     }
 }
 
