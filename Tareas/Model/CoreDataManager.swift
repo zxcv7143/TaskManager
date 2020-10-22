@@ -7,19 +7,43 @@
 
 import CoreData
 import UIKit
+import Combine
+import WidgetKit
+
 
 class CoreDataManager {
     static let sharedInstance = CoreDataManager()
+    private var cancellables = [AnyCancellable]()
     
-    private init() { }
+    private init() {
+        let notificationCancellable = NotificationCenter.default.publisher(for: .NSManagedObjectContextObjectsDidChange, object: self.persistentContainer.viewContext).sink { _ in
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+        cancellables.append(notificationCancellable)
+    }
+    
+    private enum AppGroup: String {
+      case tasks = "group.com.antonzuev.tasks.Tareas"
+
+      public var containerURL: URL {
+        switch self {
+        case .tasks:
+          return FileManager.default.containerURL(
+          forSecurityApplicationGroupIdentifier: self.rawValue)!
+        }
+      }
+    }
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentCloudKitContainer(name: "Tasks")
-        container.viewContext.automaticallyMergesChangesFromParent = true
+        let storeURL = AppGroup.tasks.containerURL.appendingPathComponent("Tasks.sqlite")
+        let description = NSPersistentStoreDescription(url: storeURL)
+        let container = NSPersistentContainer(name: "Tasks")
+        container.persistentStoreDescriptions = [description]
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+            container.viewContext.automaticallyMergesChangesFromParent = true
         })
         return container
     }()
