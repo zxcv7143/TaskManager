@@ -25,7 +25,9 @@ struct Provider: IntentTimelineProvider {
             let entry = SimpleEntry(date: entryDate ?? Date(), tasks: tasksUncompleted)
             entries.append(entry)
         }
-
+        if entries.isEmpty {
+            entries.append(SimpleEntry(date: Date(), tasks: []))
+        }
         let timeline = Timeline(entries: entries, policy:.atEnd)
         completion(timeline)
     }
@@ -67,17 +69,25 @@ struct TaskWidgetEntryView : View {
     var body: some View {
         switch family {
         case .systemSmall:
-            VStack(alignment: .leading) {
-                ForEach(entry.tasks, id: \.self) { task in
-                    TaskView(task: task)
-               }
-            }.padding(5)
+            if entry.tasks.count > 0 {
+                VStack(alignment: .leading) {
+                    ForEach(entry.tasks, id: \.self) { task in
+                        TaskView(task: task)
+                   }
+                }.padding(5)
+            } else {
+                Text("No tasks")
+            }
         default:
-            VStack(alignment: .leading) {
-                ForEach(entry.tasks, id: \.self) { task in
-                    TaskView(task: task)
-               }
-            }.padding(5)
+            if entry.tasks.count > 0 {
+                VStack(alignment: .leading) {
+                    ForEach(entry.tasks, id: \.self) { task in
+                        TaskView(task: task)
+                   }
+                }.padding(5)
+            } else {
+                Text("No tasks")
+            }
         }
         
     }
@@ -99,7 +109,10 @@ struct TaskWidget: Widget {
 
 struct TaskWidget_Previews: PreviewProvider {
     static var previews: some View {
-        TaskWidgetEntryView(entry: SimpleEntry(date: Date(), tasks: [TaskModel(id: UUID(), title: "Task", note: "Note", completed: false), TaskModel(id: UUID(), title: "Task very important", note: "Note", completed: false)]))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        Group{
+            TaskWidgetEntryView(entry: SimpleEntry(date: Date(), tasks: [TaskModel(id: UUID(), title: "Task", note: "Note", completed: false), TaskModel(id: UUID(), title: "Task very important", note: "Note", completed: false)]))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+            TaskWidgetEntryView(entry: SimpleEntry(date: Date(), tasks: [])).previewContext(WidgetPreviewContext(family: .systemSmall))
+        }
     }
 }
