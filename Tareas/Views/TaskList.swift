@@ -49,6 +49,6 @@ struct TaskListView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskListView()
+        TaskListView(taskListViewModel: TaskListViewModel(), addModalIsPresented: false)
     }
 }
